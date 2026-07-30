@@ -2,10 +2,8 @@ name: Build Android APK
 
 on:
   push:
-  #   branches: [ "main", "master" ]
   pull_request:
-  #   branches: [ "main", "master" ]
-  workflow_dispatch: # Umożliwia ręczne uruchomienie z poziomu zakładki Actions
+  workflow_dispatch:
 
 jobs:
   build:
@@ -20,7 +18,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
-          cache: 'gradle' # Automatyczne cache'owanie zależności Gradle
+          cache: 'gradle'
+
+      - name: Konfiguracja Android SDK
+        uses: android-actions/setup-android@v3
 
       - name: Nadanie uprawnień do skryptu Gradle
         run: chmod +x gradlew
