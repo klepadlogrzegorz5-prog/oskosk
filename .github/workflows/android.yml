@@ -23,6 +23,10 @@ jobs:
       - name: Konfiguracja Android SDK
         uses: android-actions/setup-android@v3
 
+      - name: Wygenerowanie brakującego debug.keystore
+        run: |
+          keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000
+
       - name: Nadanie uprawnień do skryptu Gradle
         run: chmod +x gradlew
 
