@@ -22,3 +22,6 @@ debug.keystore
 go/
 app/build/
 .build-outputs/
+
+# Gradle Wrapper - must be committed
+!gradle/wrapper/gradle-wrapper.jar
