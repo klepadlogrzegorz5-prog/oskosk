@@ -1,3 +1,16 @@
+name: Build Android APK
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+  workflow_dispatch: # Umożliwia ręczne uruchomienie z zakładki Actions na GitHubie
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
     steps:
       - name: Klonowanie repozytorium
         uses: actions/checkout@v4
